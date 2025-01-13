@@ -25,7 +25,6 @@ class WebhookOrderView(views.APIView):
         total_value = product_selling_price * quantity
         profit_value = total_value - (product_cost_price * quantity)
 
-
         message = outflow_message.format(
             product_name,
             quantity,
@@ -35,8 +34,8 @@ class WebhookOrderView(views.APIView):
         callmebot = CallMeBot()
         callmebot.send_message(message)
 
-        data['total_value'] =  total_value
-        data['profit_value'] =  profit_value
+        data['total_value'] = total_value
+        data['profit_value'] = profit_value
         send_mail(
             subject='Nova saída SGE',
             message='',
